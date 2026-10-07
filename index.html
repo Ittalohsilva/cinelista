@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineLista - Biblioteca de Filmes</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <div class="container">
+      <h1>CineLista</h1>
+      <p>Organize os filmes que você já viu e os que ainda quer ver.</p>
+    </div>
+  </header>
+
+  <div class="container layout">
+
+    <!-- Cadastro -->
+    <aside class="painel">
+      <h2>Adicionar filme</h2>
+      <form id="form-filme" novalidate>
+        <div class="campo">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" maxlength="80" placeholder="Ex.: Matrix">
+        </div>
+        <div class="campo">
+          <label for="genero">Gênero</label>
+          <select id="genero"></select>
+        </div>
+        <div class="campo-duplo">
+          <div class="campo">
+            <label for="ano">Ano</label>
+            <input type="number" id="ano" placeholder="1999">
+          </div>
+          <div class="campo">
+            <label for="nota">Nota (0 a 10)</label>
+            <input type="number" id="nota" step="0.1" placeholder="8.5">
+          </div>
+        </div>
+        <p id="erro-form" class="erro" role="alert"></p>
+        <button type="submit" class="btn btn-principal">Adicionar à biblioteca</button>
+      </form>
+    </aside>
+
+    <!-- Biblioteca -->
+    <main>
+      <section class="painel barra-filtros" aria-label="Busca e filtros">
+        <div class="campo">
+          <label for="busca">Buscar por título</label>
+          <input type="search" id="busca" placeholder="Digite parte do nome">
+        </div>
+        <div class="campo">
+          <label for="filtro-genero">Gênero</label>
+          <select id="filtro-genero"></select>
+        </div>
+        <div class="campo">
+          <label for="filtro-status">Situação</label>
+          <select id="filtro-status">
+            <option value="todos">Todos</option>
+            <option value="para-assistir">Para assistir</option>
+            <option value="assistidos">Já assisti</option>
+            <option value="favoritos">Favoritos</option>
+          </select>
+        </div>
+      </section>
+
+      <p id="contador" class="contador" aria-live="polite"></p>
+      <p id="aviso" class="aviso" aria-live="polite"></p>
+
+      <ul id="lista-filmes" class="lista-filmes"></ul>
+      <p id="vazio" class="vazio"></p>
+    </main>
+
+  </div>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>Projeto Integrador - Uninassau 2026.2 | Front-End Frameworks</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
